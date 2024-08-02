@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/api/autenticacao")
+@RequestMapping("/api/usuarios")
 @AllArgsConstructor
 public class UsuarioController {
 
