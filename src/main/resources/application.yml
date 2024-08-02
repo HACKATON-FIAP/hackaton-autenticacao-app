@@ -3,7 +3,7 @@ server:
 
 spring:
     application:
-        name: hackaton-autenticacao-app
+        name: usuarios-app
     datasource:
         url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/db_autenticacao}
         username: ${DATASOURCE_USERNAME:postgres}
@@ -22,19 +22,8 @@ spring:
         open-in-view: false  # Disable Open Session in View (OSIV) to prevent lazy loading issues
     sql:
         init:
-           mode: always
-
-jwt:
-    secret: 357638792F423F4428472B4B6250655368566D597133743677397A2443264629
-
+            mode: always
 
 messages:
     error:
         cliente-nao-encontrado: "Usuário não foi encontrado"
-
-eureka:
-    client:
-        service-url:
-            defatulZone: ${eureka.client.serviceUrl.defaultZone:http://localhost:8761/eureka}
-        fetch-registry: true
-        register-with-eureka: true

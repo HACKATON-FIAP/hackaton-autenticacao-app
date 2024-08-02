@@ -29,6 +29,30 @@ public class UsuarioController {
 
     private final JwtService jwtService;
 
+    @GetMapping("/todos")
+    public List<UsuarioDto> buscarClientePorNome(@RequestParam(required = false) String nome) {
+        if(Objects.isNull(nome)){
+            return service.findAll();
+        }else{
+            return service.buscarClientePorNome(nome);
+        }
+    }
+
+    @GetMapping("/{id}")
+    public UsuarioDto getClienteById(@PathVariable Long id) {
+        return service.getClienteById(id);
+    }
+
+    @PostMapping("/registrar")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void add(@RequestBody @Valid UsuarioDto usuarioDto) {
+        if(!usuarioDto.getPassword().equals(usuarioDto.getPasswordConfirmation())) {
+            throw new SenhasNaoCombinamException("Senhas enviadas não são iguais");
+        }
+
+        service.add(usuarioDto);
+    }
+
     @PostMapping("/autenticar")
     public TokenDto autenticar(@RequestBody AutenticarDto autenticarDto){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(autenticarDto.getUsername(), autenticarDto.getPassword()));
@@ -41,4 +65,14 @@ public class UsuarioController {
         }
     }
 
+    @PutMapping("/{id}")
+    public UsuarioDto update(@RequestBody @Valid UsuarioDto usuarioDto, @PathVariable("id") Long id){
+        return service.update(usuarioDto, id);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete (@PathVariable("id") Long id){
+        service.delete(id);
+    }
 }
