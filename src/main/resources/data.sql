@@ -1,0 +1,1 @@
+INSERT INTO usuario (id, data_cadastro, email, nome, password, role, username) VALUES (1, NOW(), 'adj2@fiap.com.br', 'adj2', '$2a$10$p3VRS9KshxFJbc3/aWGSj.NTVvyVM.xVz5tixV.j2dZUJC59PYovK', 1, 'adj2')  ON CONFLICT (id) DO NOTHING;
