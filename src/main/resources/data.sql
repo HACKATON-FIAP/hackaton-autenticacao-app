@@ -17,4 +17,4 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS public.usuario
     OWNER to postgres;
 
-INSERT INTO usuario(data_cadastro, email, nome, password, role, username) VALUES (NOW(), 'adj2@fiap.com.br', 'adj2', '$2a$10$p3VRS9KshxFJbc3/aWGSj.NTVvyVM.xVz5tixV.j2dZUJC59PYovK', 1, 'adj2');
+INSERT INTO usuario(data_cadastro, email, nome, password, role, username) VALUES (NOW(), 'adj2@fiap.com.br', 'adj2', '$2a$10$p3VRS9KshxFJbc3/aWGSj.NTVvyVM.xVz5tixV.j2dZUJC59PYovK', 1, 'adj2') ON CONFLICT DO NOTHING;
