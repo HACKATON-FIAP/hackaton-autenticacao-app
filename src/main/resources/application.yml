@@ -3,7 +3,7 @@ server:
 
 spring:
     application:
-        name: usuarios-app
+        name: hackaton-autenticacao-app
     datasource:
         url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/db_autenticacao}
         username: ${DATASOURCE_USERNAME:postgres}
@@ -27,3 +27,14 @@ spring:
 messages:
     error:
         cliente-nao-encontrado: "Usuário não foi encontrado"
+
+openapi:
+    service:
+        title: hackaton-autenticacao-app-service doc
+        version: 1.0.0
+        url: http://localhost:8080 #api gateway url
+springdoc:
+    api-docs:
+        path: /hackaton-autenticacao-app/v3/api-docs
+    swagger-ui:
+        path: /hackaton-autenticacao-app/swagger-ui.html

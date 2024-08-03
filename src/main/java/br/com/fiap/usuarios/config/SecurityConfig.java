@@ -33,7 +33,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/autenticacao/autenticar").permitAll()
+                .requestMatchers("/api/autenticacao/autenticar","/hackaton-autenticacao-app/v3/api-docs","/hackaton-autenticacao-app/swagger-ui.html").permitAll()
                 .and()
                 .authorizeHttpRequests().requestMatchers("/api/autenticacao/**")
                 .authenticated()
