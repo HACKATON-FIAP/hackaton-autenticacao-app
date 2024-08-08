@@ -1,5 +1,6 @@
 package br.com.fiap.usuarios.domain.service;
 
+import br.com.fiap.usuarios.domain.exception.UsuarioNaoEncontradoException;
 import br.com.fiap.usuarios.domain.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,8 +18,9 @@ public class UsuarioService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         var user = usuarioRepository.findByUsername(username);
         if(user == null){
-            throw new UsernameNotFoundException("could not found user..!!");
+            throw new UsuarioNaoEncontradoException("Usuario não encontrado na base de dados!");
         }
+
         return user;
     }
 }

@@ -2,9 +2,10 @@ package br.com.fiap.usuarios.api.model;
 
 import br.com.fiap.usuarios.domain.enums.Role;
 import jakarta.validation.constraints.NotBlank;
-import lombok.*;
-
-import java.time.LocalDate;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder

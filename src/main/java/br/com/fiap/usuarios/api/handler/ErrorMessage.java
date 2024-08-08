@@ -1,13 +1,11 @@
-package br.com.fiap.usuarios.api.exceptionhandler;
+package br.com.fiap.usuarios.api.handler;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 public class ErrorMessage {
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
