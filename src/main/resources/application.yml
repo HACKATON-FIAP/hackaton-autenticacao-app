@@ -28,6 +28,13 @@ messages:
     error:
         cliente-nao-encontrado: "Usuário não foi encontrado"
 
+eureka:
+    client:
+        service-url:
+            defaultZone: ${eureka.client.serviceUrl.defaultZone:http://localhost:8761/eureka}
+        fetch-registry: true
+        register-with-eureka: true
+
 openapi:
     service:
         title: hackaton-autenticacao-app-service doc
